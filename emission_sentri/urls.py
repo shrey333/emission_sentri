@@ -21,8 +21,6 @@ from emission_sentri_api.views import EmissionsList
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-...
-
 schema_view = get_schema_view(
     openapi.Info(
         title="Emmission Sentri API",
@@ -43,4 +41,5 @@ urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger',
                                          cache_timeout=None), name='schema-swagger-ui'),
     path('api/', include('rest_framework.urls')),
+    path('emissions/', EmissionsList.as_view(), name='emissions-list'),
 ]
